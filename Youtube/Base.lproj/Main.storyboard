@@ -8,35 +8,75 @@
     </dependencies>
     <scenes>
         <!--Player View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="qQD-hs-RfQ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PlayerViewController" customModule="Youtube" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="ZVe-ym-Hct" customClass="PlayerViewController" customModule="Youtube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LZ5-dV-uEf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9l-74-W03" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YI2-PI-YUD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YI2-PI-YUD" secondAttribute="height" multiplier="16:9" id="Fkm-f5-mpP"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U9l-74-W03" secondAttribute="trailing" id="8BJ-4T-JRe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U9l-74-W03" secondAttribute="bottom" id="KHT-Ms-Xda"/>
-                            <constraint firstItem="U9l-74-W03" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Rfv-ga-v91"/>
-                            <constraint firstItem="U9l-74-W03" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zN0-lq-S1n"/>
+                            <constraint firstItem="g74-sC-dbb" firstAttribute="trailing" secondItem="YI2-PI-YUD" secondAttribute="trailing" id="L8c-KK-okx"/>
+                            <constraint firstItem="YI2-PI-YUD" firstAttribute="leading" secondItem="g74-sC-dbb" secondAttribute="leading" id="Sxf-dQ-LVa"/>
+                            <constraint firstItem="YI2-PI-YUD" firstAttribute="top" secondItem="g74-sC-dbb" secondAttribute="top" id="kac-iH-iXw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g74-sC-dbb"/>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="YI2-PI-YUD" id="0Hn-C9-cOJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7yH-EQ-g7z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-927" y="-68"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Youtube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4H-6r-hta" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                                <rect key="frame" x="0.0" y="44" width="414" height="339"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYI-OJ-jwj">
+                                <rect key="frame" x="170" y="481" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="loadVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MUP-fO-OlO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="j4H-6r-hta" secondAttribute="bottom" id="7fw-tv-TUH"/>
+                            <constraint firstItem="j4H-6r-hta" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="A5p-Yw-b67"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j4H-6r-hta" secondAttribute="trailing" id="Bmp-a9-dnj"/>
+                            <constraint firstItem="j4H-6r-hta" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JWd-jX-lSZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="LCS-4j-PJe"/>
                     <connections>
-                        <outlet property="playerView" destination="U9l-74-W03" id="gBj-Mo-xCU"/>
+                        <outlet property="playerView" destination="j4H-6r-hta" id="pbq-Gd-P8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="695.08928571428567" y="-15.942028985507248"/>
+            <point key="canvasLocation" x="694.20289855072474" y="-16.071428571428569"/>
         </scene>
     </scenes>
 </document>

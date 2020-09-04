@@ -8,38 +8,30 @@
 
 import UIKit
 import YouTubePlayer
-import YoutubePlayer_in_WKWebView
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var player: WKYTPlayerView!
+
+    @IBOutlet weak var playerView: YouTubePlayerView!
     
-    player.load(withVideoId: "MN4zQp2rny8", playerVars: playvarsDic)
-    let playvarsDic = ["playsinline": 0, "autoplay": 0]
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        playerView.delegate = self
-
-        // Do any additional setup after loading the view.
+        let playVarDic = ["playsinline": 1]
+        let playerURL = URL(string: "https://www.youtube.com/watch?v=MN4zQp2rny8")
+        playerView.loadVideoURL(playerURL!)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension ViewController: WKYTPlayerViewDelegate {
-    func playerViewDidBecomeReady(_ playerView: WKYTPlayerView) {
-        playerView.playVideo()
+    @IBAction func loadVideo(_ sender: UIButton) {
+        let playerVars = [
+            "playsinline": 0 ,
+            "controls": 0 ,
+            "origins":"https://www.youtube.com"
+            ] as [String : Any]
+        playerView.loadVideoID("MN4zQp2rny8")
     }
     
 }

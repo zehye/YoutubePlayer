@@ -11,16 +11,18 @@ import YouTubePlayer
 
 class PlayerViewController: UIViewController {
     
-    @IBOutlet weak var playerView: YouTubePlayerView!
+    @IBOutlet weak var playerView: UIView!
+//    var playerView = UIView()
     @IBOutlet weak var progressSlider: UISlider!
     @IBOutlet weak var titleLbl: UILabel!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("viewwillappear")
         let frame = CGRect.init(x: 0, y: 0, width: playerView.frame.width, height: playerView.frame.height)
         let videoPlayer = YouTubePlayerView(frame: frame)
         videoPlayer.backgroundColor = UIColor.black
